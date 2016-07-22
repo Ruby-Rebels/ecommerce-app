@@ -1,8 +1,12 @@
-<% @products.each do |product| %>
-<ul>
-  <li><%= product.name %></li>
-  <li>$:<%= product.price %></li>
-  <li> <img src="<%= product.image %>" alt="">  </li>
-  <li><%= product.description %></li>
-</ul>
-<% end %>
+<h2>All the products</h2>
+
+<p><%= link_to "Create new product", "/products/new" %></p>
+
+<div>
+  <% @products.each do |product| %>
+    <h4>Name: <%= link_to product.name, "/products/#{product.id}"%></h4>
+    <h4>Price: $<%= product.price %></h4>
+    <img src="<%= product.image %>" alt="">
+    <h4>Description: <%= product.description %></h4>
+  <% end %>
+</div>
